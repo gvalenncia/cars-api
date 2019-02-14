@@ -18,6 +18,7 @@ const vehicles = [
 const typeDefs = `
     type Query {
         vehicles: [Vehicle!]!
+        owners: [Owner!]!
     }
 
     type Vehicle {
@@ -31,18 +32,29 @@ const typeDefs = `
     type Owner {
         id: ID!
         name: String!
+        vehicles: [Vehicle!]!
     }
 `
 const  resolvers = {
     Query: {
         vehicles() {
             return vehicles
+        },
+        owners(){
+            return owners
         }
     },
     Vehicle: {
         owner(parent, args, ctx, info){
             return owners.find((owner)=>{
                 return owner.id === parent.owner
+            })
+        }
+    },
+    Owner: {
+        vehicles(parent, args, ctx, info) {
+            return vehicles.filter((vehicle)=>{
+                return vehicle.owner === parent.id
             })
         }
     }
