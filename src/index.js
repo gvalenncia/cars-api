@@ -1,13 +1,13 @@
 import { GraphQLServer } from 'graphql-yoga'
 
-// User mock data
+// Owner mock data
 const owners = [
     {id: '1', name: 'german valencia' },
     {id: '2', name: 'andrew liles'},
     {id: '3', name: 'steve jobs'}
 ]
 
-// Post mock data
+// Vehicle mock data
 const vehicles = [
     {id: '10', brand: 'ford', type: 'truck', plate: 'AAA123', owner: '1'},
     {id: '20', brand: 'hyundai', type: 'sedan', plate: 'AAA125', owner: '1'},
