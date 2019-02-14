@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon src/index.js --exec babel-node"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "graphql-yoga": "^1.16.7",
+    "graphql-yoga": "^1.16.7"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
