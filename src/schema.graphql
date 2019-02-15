@@ -5,7 +5,7 @@ type Query {
 
 type Vehicle {
     id: ID!
-    brand: String!
+    brand: Brand!
     type: String!
     plate: String!
     owner: Owner!
@@ -15,4 +15,9 @@ type Owner {
     id: ID!
     name: String!
     vehicles: [Vehicle!]!
+}
+
+type Brand {
+    id: ID!
+    name: String!
 }

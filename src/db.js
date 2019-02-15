@@ -7,15 +7,22 @@ const owners = [
 
 // Vehicle mock data
 const vehicles = [
-    {id: '10', brand: 'ford', type: 'truck', plate: 'AAA123', owner: '1'},
-    {id: '20', brand: 'hyundai', type: 'sedan', plate: 'AAA125', owner: '1'},
-    {id: '30', brand: 'chevrolet', type: 'sedan', plate: 'AAA126', owner: '2'},
-    {id: '40', brand: 'chevrolet', type: 'sedan', plate: 'BBB126', owner: '3'}
+    {id: '1', plate: 'AAA123', type: 'truck', owner: '1', brand: '1'},
+    {id: '2', plate: 'AAA125', type: 'sedan', owner: '1', brand: '1'},
+    {id: '3', plate: 'AAA126', type: 'sedan', owner: '2', brand: '2'},
+    {id: '4', plate: 'BBB126', type: 'sedan', owner: '3', brand: '2'}
+]
+
+//Brand mock data
+const brands = [
+    {id: '1', name: 'ford'},
+    {id: '2', name: 'chevrolet'}
 ]
 
 const db = {
     owners,
-    vehicles
+    vehicles,
+    brands
 }
 
 export { db as default }
