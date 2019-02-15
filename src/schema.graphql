@@ -1,0 +1,18 @@
+type Query {
+    vehicles: [Vehicle!]!
+    owners: [Owner!]!
+}
+
+type Vehicle {
+    id: ID!
+    brand: String!
+    type: String!
+    plate: String!
+    owner: Owner!
+}
+
+type Owner {
+    id: ID!
+    name: String!
+    vehicles: [Vehicle!]!
+}
