@@ -1,8 +1,7 @@
 import { GraphQLServer } from 'graphql-yoga'
-import Query from './resolvers/Query'
-import Vehicle from './resolvers/Vehicle'
-import Owner from './resolvers/Owner'
-import db from './db'
+import Query from './resolvers/query'
+import Vehicle from './resolvers/vehicle'
+import Owner from './resolvers/owner'
 
 const server = new GraphQLServer({
     typeDefs: './src/schema.graphql',
@@ -10,9 +9,6 @@ const server = new GraphQLServer({
         Query,
         Vehicle,
         Owner
-    },
-    context: {
-        db
     }
 })
 

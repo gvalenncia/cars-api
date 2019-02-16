@@ -1,41 +1,34 @@
-import Vehicle from './Vehicle'
+import Vehicle from './vehicle'
+import OwnerModel from '.././models/owner.model'
+import BrandModel from '.././models/brand.model'
 
-test('It should get the owner of a vehicle with id 1', () => {
+jest.mock('.././models/owner.model')
+jest.mock('.././models/brand.model')
+
+test('It should get the owner of the vehicle with id 1', () => {
     //given
-    const parent = {owner: '1'}
-    const args = {}
-    const ctx = {
-        db:{
-            owners: [
-                {id: '1', name: 'german valencia'}
-            ]
-        }
-    }
-    const info = {}
+    const parent = {id: '1'}
+    const expected = { id: 1, cedula: '80754212', name: 'german valencia' }
+    OwnerModel.findByPk.mockResolvedValue(
+        { dataValues: { id: 1, cedula: '80754212', name: 'german valencia' } }
+    )
 
-    //when
-    const outcome = Vehicle.owner(parent, args, ctx, info)
-    
-    //then
-    expect(outcome).toEqual(ctx.db.owners[0])
+    //when, then
+    return Vehicle.owner(parent, {}, {}, {})
+    .then((outcome)=>{
+        expect(outcome).toEqual(expected)
+    })
 });
 
-test('It should get the brand of a vehicle with id 1', () => {
+test('It should get the brand of the vehicle with id 1', () => {
     //given
-    const parent = {brand: '1'}
-    const args = {}
-    const ctx = {
-        db:{
-            brands: [
-                {id: '1', name: 'ford'}
-            ]
-        }
-    }
-    const info = {}
+    const parent = {id: '1'}
+    const expected = { id: 1, name: 'ford' }
+    BrandModel.findByPk.mockResolvedValue({ dataValues: { id: 1, name: 'ford' } })
 
-    //when
-    const outcome = Vehicle.brand(parent, args, ctx, info)
-    
-    //then
-    expect(outcome).toEqual(ctx.db.brands[0])
+    //when, then
+    return Vehicle.brand(parent, {}, {}, {})
+    .then((outcome)=>{
+        expect(outcome).toEqual(expected)
+    })
 });

@@ -5,10 +5,10 @@ type Query {
 
 type Vehicle {
     id: ID!
-    brand: Brand!
     type: String!
     plate: String!
     owner: Owner!
+    brand: Brand!
 }
 
 type Owner {

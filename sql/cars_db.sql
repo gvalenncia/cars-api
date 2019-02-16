@@ -27,8 +27,8 @@ CREATE TABLE "public"."vehicle_tb" (
 	"id" SERIAL NOT NULL,
 	"plate" Character Varying( 2044 ) NOT NULL,
 	"type" Character Varying( 2044 ) NOT NULL,
-	"id_owner" Integer NOT NULL,
-	"id_brand" Integer NOT NULL,
+	"owner" Integer NOT NULL,
+	"brand" Integer NOT NULL,
 	PRIMARY KEY ( "id" ),
 	CONSTRAINT "unique_vehicle_tb_plate" UNIQUE( "plate" ) );
  ;
@@ -36,7 +36,7 @@ CREATE TABLE "public"."vehicle_tb" (
 
 -- CREATE LINK "lnk_brand_tb_vehicle_tb" -----------------------
 ALTER TABLE "public"."vehicle_tb"
-	ADD CONSTRAINT "lnk_brand_tb_vehicle_tb" FOREIGN KEY ( "id_brand" )
+	ADD CONSTRAINT "lnk_brand_tb_vehicle_tb" FOREIGN KEY ( "brand" )
 	REFERENCES "public"."brand_tb" ( "id" ) MATCH FULL
 	ON DELETE Cascade
 	ON UPDATE Cascade;
@@ -44,7 +44,7 @@ ALTER TABLE "public"."vehicle_tb"
 
 -- CREATE LINK "lnk_owner_tb_vehicle_tb" -----------------------
 ALTER TABLE "public"."vehicle_tb"
-	ADD CONSTRAINT "lnk_owner_tb_vehicle_tb" FOREIGN KEY ( "id_owner" )
+	ADD CONSTRAINT "lnk_owner_tb_vehicle_tb" FOREIGN KEY ( "owner" )
 	REFERENCES "public"."owner_tb" ( "id" ) MATCH FULL
 	ON DELETE Cascade
 	ON UPDATE Cascade;
