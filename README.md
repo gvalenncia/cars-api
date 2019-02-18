@@ -5,7 +5,7 @@
 
 ### Setting the database up
 
-Once you have postgres, please crate a database ana user as:
+Once you have postgres, please crate a database and an user as:
 
 ```
 $ sudo -u postgres psql;
@@ -13,6 +13,9 @@ postgres=# CREATE USER gvv WITH ENCRYPTED PASSWORD 'gvv';
 postgres=# CREATE DATABASE cars_db;
 postgres=# GRANT ALL PRIVILEGES ON DATABASE cars_db TO gvv;
 ```
+and execute the following sql script to create and populate database tables:
+
+https://github.com/gvalenncia/cars-api/blob/master/sql/cars_db.sql
 
 ### Run the application
 
